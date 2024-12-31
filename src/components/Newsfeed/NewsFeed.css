@@ -1,0 +1,57 @@
+.newsfeed {
+    width: 100%;
+    height: 100%;
+    padding: 2vh;
+    align-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 5fr));
+    grid-gap: 5px;
+    transition: all 1s ease-in-out;
+}
+
+.Card {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.Card .logo img {
+    width: 35vh;
+    height: 35vh;
+    transition: all 0.5s ease-in-out;
+}
+
+.Card .logo img:hover {
+    transform: scale(1.1);
+}
+
+.discription {
+    text-align: left;
+    text-overflow: ellipsis;
+    text-wrap: balance;
+    text-decoration: wavy;
+}
+
+.bookmark {
+    display: inline;
+    position: absolute;
+    height: 30px;
+    width: 20px;
+    top: 1vh;
+    right: 2vh;
+    background: white;
+    border-radius: 20px;
+    visibility: hidden;
+}
+
+.bookmark:hover {
+    background: rgb(199, 186, 186);
+    transform: scale(1.1);
+}
+
