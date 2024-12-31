@@ -1,0 +1,24 @@
+.home{
+    width: 100vw;
+    height: max-content;
+    background-color: #ffffff;
+}
+.navbar{
+    width: 100vw;
+    height: 6vh;
+    margin-top: 1VH;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.navbar li{
+    list-style: none;
+    margin: 0 10px 10px 10px;
+}
+.navbar li a{
+    text-decoration: none;
+    color: #000000;
+}   
