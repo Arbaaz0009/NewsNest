@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
 import Header from '../../components/Header/Header'
-import { Link, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import Footer from '../../components/Footer/Footer'
 import './Home.css'
 import {fetchArticles} from '../../api/FetchData'
@@ -18,10 +18,10 @@ const Home = () => {
     <div className='home'>
       <Header />
       <div className="navbar">
-        <li><Link to="">Home</Link></li>
-        <li><Link to="/bookmarks">Bookmarks</Link></li>
-        <li><Link to="/categories">Categories</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><NavLink to="" style={({isActive})=>({ fontWeight: isActive ? 'bold' : 'normal' })}>Home</NavLink></li>
+        <li><NavLink to="/bookmarks" style={({isActive})=>({ fontWeight: isActive ? 'bold' : 'normal' })}>Bookmarks</NavLink></li>
+        <li><NavLink to="/categories" style={({isActive})=>({ fontWeight: isActive ? 'bold' : 'normal' })}>Categories</NavLink></li>
+        <li><NavLink to="/about" style={({isActive})=>({ fontWeight: isActive ? 'bold' : 'normal' })}>About</NavLink></li>
       </div>
       <Outlet/>
       <Footer/>
