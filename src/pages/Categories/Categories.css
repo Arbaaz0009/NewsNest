@@ -1,0 +1,44 @@
+.categories{
+    height: 100vh;
+    width: 100vw;
+}
+.lists {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+}
+
+.list-item {
+    height: 20px;
+    width: max-content;
+}
+
+.lists li {
+    list-style: none;
+    margin: 0 10px;
+}
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controls button{
+    height: 5vh;
+    width: 10vw;
+    color: #000;
+    margin: 2vh;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.controls button:hover{
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+    filter: brightness(1.2);
+}
+.cancelBtn{
+    background-color: #d83d257f;
+}
+.applyBtn{
+    background-color: #57ea22;
+}

@@ -17,18 +17,23 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    cursor: pointer;
     position: relative;
 }
-
+.logo{
+    overflow: hidden;
+}
 .Card .logo img {
     width: 35vh;
     height: 35vh;
     transition: all 0.5s ease-in-out;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
 }
 
 .Card .logo img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    
 }
 
 .discription {
@@ -54,4 +59,12 @@
     background: rgb(199, 186, 186);
     transform: scale(1.1);
 }
-
+.title{
+    text-align: left;
+    text-wrap: balance;
+    
+}
+.discription{
+    text-align: left;
+    text-wrap: balance;
+}

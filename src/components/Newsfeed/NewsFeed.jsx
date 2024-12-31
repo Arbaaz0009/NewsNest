@@ -1,24 +1,12 @@
 import React from 'react'
 import "./NewsFeed.css";
 import Card from './Card';
-const NewsFeed = () => {
-  let logo = './Logo.png';
-  let title = 'this is title';
-  let discription = 'this is discription.this is discription.this is discription.this is discription.this is discription';
+const NewsFeed = ({ data }) => {
+
 
   return (
     <div className='newsfeed'>
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
-      <Card logo={logo} title={title} discription={discription} />
+      {data.map((item) => (<Card logo={item.logo} title={item.title} discription={item.discription} url={item.url} key={item.title}/>))}
     </div>
   )
 }
