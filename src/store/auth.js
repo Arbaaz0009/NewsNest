@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 const initialState = {
   isauth: false,
   userName: '',
@@ -8,20 +9,21 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    loginStart: (state) => {
-      state.isauth = false;
+   login(state, action) {
+    state.isauth = true;
+    const { email,password } = action.payload;
     },
-    loginSuccess: (state, action) => {
-      state.isauth = true;
-      state.userName = action.payload.name;
-    },
-    loginFailure: (state) => {
-      state.isauth = false;
-    },
-    logout: (state) => {
-      state.isauth = false;
-      state.userName = null;
-    },
+    register(state, action) {
+      const {email,password,name} = action.payload;
+
+      try {
+        const response =  axios.post('http://localhost:5000/api/auth/register',{email,password,name});
+        console.log(response);
+      } catch (error) {
+        console.error("Error: ",error);
+      }
+
+    }
   },
 });
 
