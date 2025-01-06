@@ -8,18 +8,19 @@ const Default = () => {
   const [isloading, setIsloading] = useState(true);
   const [data, setData] = useState([]);
 
+
   useEffect(() => {
     try {
-
       async function fetchData() {
-        
+
         const response = await fetchLatestNews();
-        
+
         const data = response.results.map((item) => ({
           title: item.title,
           discription: item.abstract,
           logo: item.multimedia[2]?.url || item.multimedia[3]?.url,
           url: item.url,
+          id: `${item.title}-${Math.floor(Math.random() * 1000)}`,
         }))
         startTransition(() => {
           setData(data);

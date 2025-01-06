@@ -1,17 +1,18 @@
 import React, { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Login.css';
+import { AuthAction } from '../../store/auth';
 const Login = () => {
   const navigate = useNavigate();
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
     const obj = { email, password };
-    //TODO: Implement login logic
+
     try {
-      console.log("fetching data", );
       const res = await fetch("https://newsnestserver.onrender.com/login", {
         method: "POST",
         headers: {
@@ -20,7 +21,27 @@ const Login = () => {
         body: JSON.stringify(obj),
       });
       const data = await res.json();
-      console.log(data);
+      const name = data.user.name;
+      const email = data.user.email;
+      const success = data.success;
+      if (success) {
+        const loginError = document.querySelector(".login-error");
+        loginError.style.visibility = "visible";
+        loginError.style.color = "green";
+        loginError.textContent = `Login Successful,Welcome ${name}`;
+        localStorage.setItem("Name", name);
+        localStorage.setItem("Email", email);
+        dispatch(AuthAction.login({ userName: name, email: email }));
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+        
+
+      } else {
+        const loginError = document.querySelector(".login-error");
+        loginError.style.visibility = "visible";
+        loginError.textContent = "Invalid Credentials, Please try again";
+      }
 
     } catch (error) {
       console.log(error);
@@ -44,8 +65,11 @@ const Login = () => {
           </label>
           <input type="password" name="password" id='password' required minLength="8" />
         </div>
-
-        <div>Don't have an account? <Link to='/register'>Sign Up</Link> </div>
+        <div className="login-error"></div>
+        <div className="query_sec">
+          <div>Don't have an account? <Link to='/register'>Sign Up</Link> </div>
+          <Link style={{visibility:"hidden"}}>Forgot Password?  </Link>
+        </div>
         <button type="submit">Login</button>
       </form>
     </div>

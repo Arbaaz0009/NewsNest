@@ -3,6 +3,7 @@ import axios from "axios";
 const initialState = {
   isauth: false,
   userName: '',
+  email: '',
 };
 
 export const authSlice = createSlice({
@@ -11,19 +12,19 @@ export const authSlice = createSlice({
   reducers: {
    login(state, action) {
     state.isauth = true;
-    const { email,password } = action.payload;
+    state.userName = action.payload.userName;
+    state.email = action.payload.email;
     },
-    register(state, action) {
-      const {email,password,name} = action.payload;
-
-      try {
-        const response =  axios.post('http://localhost:5000/api/auth/register',{email,password,name});
-        console.log(response);
-      } catch (error) {
-        console.error("Error: ",error);
-      }
-
-    }
+    logout(state) {
+      state.isauth = false;
+      state.userName = '';
+      state.email = '';
+    },
+    setData(state, action) {
+      state.isauth = true;
+      state.userName = action.payload.userName;
+      state.email = action.payload.email;
+    },
   },
 });
 
