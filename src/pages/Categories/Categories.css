@@ -1,5 +1,5 @@
 .categories {
-    height: min-content;
+    height: 100dvh !important;
     width: 100vw;
 }
 
