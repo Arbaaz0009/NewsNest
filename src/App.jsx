@@ -11,6 +11,7 @@ const Login = lazy(() => import("./pages/Login/Login.jsx"));
 const Categories = lazy(() => import("./pages/Categories/Categories.jsx"));
 const Bookmarks = lazy(() => import("./pages/Bookmarks/Bookmarks.jsx"));
 const Default = lazy(() => import("./pages/DefaultPage/Default.jsx"));
+
 const router = createBrowserRouter([
   {
     path: "/",
