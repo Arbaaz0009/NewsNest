@@ -19,6 +19,7 @@ export const authSlice = createSlice({
       state.isauth = false;
       state.userName = '';
       state.email = '';
+      localStorage.clear();
     },
     setData(state, action) {
       state.isauth = true;

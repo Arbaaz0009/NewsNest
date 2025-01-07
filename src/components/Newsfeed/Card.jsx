@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 const Card = ({ logo, title, discription, url, id, isBookmark }) => {
   const bookref = useRef();
   const email = useSelector((state) => state.auth.email);
@@ -68,7 +69,10 @@ const Card = ({ logo, title, discription, url, id, isBookmark }) => {
         <p className="discription">{discription}</p>
       </div>
       <div className='bookmark' ref={bookref} 
-      onClick={(!isBookmark)?AddBookmark:removeBookmark}><FontAwesomeIcon icon={faBookmark} /></div>
+      onClick={(!isBookmark)?AddBookmark:removeBookmark}>
+        {(!isBookmark)?<FontAwesomeIcon icon={faBookmark} />:
+        <FontAwesomeIcon icon={faXmark} style={{ color: "red" }} />}
+        </div>
     </div>
   )
 }

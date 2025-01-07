@@ -22,6 +22,8 @@ const Register = () => {
                 body: JSON.stringify(obj),
             });
             const data = await res.json();
+            console.log(data);
+            
             const name = data.user.name;
             const email = data.user.email;
             localStorage.setItem("Name", name);

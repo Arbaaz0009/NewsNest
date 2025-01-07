@@ -8,8 +8,12 @@ const About = () => {
 
       <h2>Key Features</h2>
       <ul>
-        <li><strong>Personalized news feeds</strong> based on categories, keywords, and regions.</li>
-        <li><strong>Multi-language support</strong>: English, Spanish, French, and German.</li>
+        <li><strong>Personalized news feeds</strong> based on categories.</li>
+        <li><strong>Quick access</strong> to your favorite news sources.</li>
+        <li><strong>Easy navigation</strong> through categories and sources.</li>
+        <li><strong>Bookmarking</strong> articles for later reading.</li>
+
+        <li><strong>Customizable</strong> news categories and sources.</li>
         <li><strong>Real-time updates</strong> using trusted APIs, including NYTimes.com for high-quality content.</li>
       </ul>
 

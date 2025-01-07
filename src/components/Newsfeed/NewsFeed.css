@@ -86,6 +86,7 @@
     background: white;
     border-radius: 20px;
     /* visibility: hidden; */
+    cursor: pointer;
 }
 
 .bookmark:hover {
@@ -93,11 +94,11 @@
     transform: scale(1.1);
 }
 .title{
-    text-align: left;
-    text-wrap: balance;
-    
+    text-align: center;
+    /* text-wrap: balance; */
+
 }
 .discription{
-    text-align: left;
-    text-wrap: balance;
+    text-align: center;
+    /* text-wrap: balance; */
 }

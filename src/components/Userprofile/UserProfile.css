@@ -1,0 +1,29 @@
+.user {
+    margin: 0;
+    height: 9dvh;
+    width: 9dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    border-radius: 50%;
+
+}
+
+.userProfile {
+    width: calc(100% + 10dvh);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}

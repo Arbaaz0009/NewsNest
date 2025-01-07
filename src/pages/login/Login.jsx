@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React, { startTransition, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Login.css';
 import { AuthAction } from '../../store/auth';
+import { useDispatch } from 'react-redux';
 const Login = () => {
   const navigate = useNavigate();
-  
+  let loginError = useRef();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,10 +23,13 @@ const Login = () => {
         body: JSON.stringify(obj),
       });
       const data = await res.json();
-      const name = data.user.name;
-      const email = data.user.email;
+
+
       const success = data.success;
       if (success) {
+
+        const name = data.user.name;
+        const email = data.user.email;
         const loginError = document.querySelector(".login-error");
         loginError.style.visibility = "visible";
         loginError.style.color = "green";
@@ -35,12 +40,18 @@ const Login = () => {
         setTimeout(() => {
           navigate("/");
         }, 1500);
-        
+
 
       } else {
-        const loginError = document.querySelector(".login-error");
-        loginError.style.visibility = "visible";
-        loginError.textContent = "Invalid Credentials, Please try again";
+        startTransition(() => {
+          const loginErrorElement = loginError.current;
+          if (loginErrorElement) {
+            loginErrorElement.style.visibility = "visible";
+            loginErrorElement.style.color = "red";
+            loginErrorElement.textContent = "Invalid Credentials, Please try again";
+          }
+        });
+
       }
 
     } catch (error) {
@@ -65,10 +76,10 @@ const Login = () => {
           </label>
           <input type="password" name="password" id='password' required minLength="8" />
         </div>
-        <div className="login-error"></div>
+        <div className="login-error" ref={loginError}></div>
         <div className="query_sec">
           <div>Don't have an account? <Link to='/register'>Sign Up</Link> </div>
-          <Link style={{visibility:"hidden"}}>Forgot Password?  </Link>
+          <Link style={{ visibility: "hidden" }}>Forgot Password?  </Link>
         </div>
         <button type="submit">Login</button>
       </form>

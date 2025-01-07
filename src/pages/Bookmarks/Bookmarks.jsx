@@ -12,9 +12,9 @@ const Bookmarks = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [hasData, setHasData] = useState(true);
-  const email = localStorage.getItem("Email") ? localStorage.getItem("Email") : navigate('/login');
+  const email = localStorage.getItem("Email") ? localStorage.getItem("Email") : null;
   const server = import.meta.env.VITE_SERVER_URL;
-
+  const isauth = useSelector(state => state.auth.isauth);
 
   useEffect(() => {
     try {
@@ -28,8 +28,8 @@ const Bookmarks = () => {
           body: JSON.stringify({ email: email }),
         });
         response = await response.json();
-        
-        if (response.bookmarks.length === 0) {
+
+        if (response.bookmarks?.length === 0) {
           setHasData(false);
           console.log("No data");
         } else {
@@ -42,6 +42,7 @@ const Bookmarks = () => {
       fetchData();
     } catch (error) {
       console.error(error);
+      setIsloading(false);
     }
   }, []);
   if (isloading) {
@@ -49,10 +50,14 @@ const Bookmarks = () => {
 
   }
   return (
-    <div className='bookmarks'>
-      <NewsFeed data={data} isBookmark={true} />
-      {(hasData) ? null : <h1>No Bookmarks</h1>}
-    </div>
+    <>
+      {(isauth) ? <div className='bookmarks'>
+        {(hasData) ? <NewsFeed data={data} isBookmark={true} /> : <h1>No Bookmarks</h1>}
+      </div> :
+        <div className='bookmarks'>
+          <h1>Please Login</h1>
+        </div>}
+    </>
   )
 }
 
