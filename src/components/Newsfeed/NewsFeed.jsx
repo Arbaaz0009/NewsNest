@@ -1,7 +1,7 @@
 import React from 'react'
 import "./NewsFeed.css";
 import Card from './Card';
-const NewsFeed = ({ data }) => {
+const NewsFeed = ({ data,isBookmark }) => {
 
 
   return (
@@ -13,7 +13,10 @@ const NewsFeed = ({ data }) => {
           discription={item.discription}
           url={item.url}
           key={item.id}
-          id={item.id} />
+          id={item.id} 
+          isBookmark={isBookmark}
+          
+          />
       ))}
     </div>
   )

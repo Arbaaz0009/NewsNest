@@ -11,7 +11,6 @@ const Login = lazy(() => import("./pages/Login/Login.jsx"));
 const Categories = lazy(() => import("./pages/Categories/Categories.jsx"));
 const Bookmarks = lazy(() => import("./pages/Bookmarks/Bookmarks.jsx"));
 const Default = lazy(() => import("./pages/DefaultPage/Default.jsx"));
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,7 +32,7 @@ const router = createBrowserRouter([
         path: "/bookmarks",
         element: <Bookmarks />
       },
-
+     
 
     ]
   },
@@ -45,6 +44,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />
   },
+
 ]);
 function App() {
 

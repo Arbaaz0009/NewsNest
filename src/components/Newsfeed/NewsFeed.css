@@ -9,6 +9,18 @@
     transition: all 1s ease-in-out;
 }
 
+@media screen and (max-width: 768px) {
+    .newsfeed {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newsfeed {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 5fr));
+    }
+}
+
 .Card {
     width: fit-content;
     height: fit-content;
@@ -18,6 +30,7 @@
     align-items: center;
     border-radius: 10px;
     position: relative;
+    
 }
 .logo{
     overflow: hidden;
@@ -29,6 +42,26 @@
     object-fit: cover;
     aspect-ratio: 16 / 9;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1300px) {
+    .Card .logo img {
+        width: 20vh;
+        height: 20vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Card .logo img {
+        width:  20vh;
+        height: 20vh;
+    }
+    .title{
+        font-size: 15px;
+    }
+    .discription{
+        font-size: 10px;
+    }
 }
 
 .Card .logo img:hover {
@@ -52,7 +85,7 @@
     right: 2vh;
     background: white;
     border-radius: 20px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .bookmark:hover {

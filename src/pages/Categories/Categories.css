@@ -1,7 +1,8 @@
-.categories{
-    height: 100vh;
+.categories {
+    height: min-content;
     width: 100vw;
 }
+
 .lists {
     padding: 10px;
     display: grid;
@@ -18,27 +19,47 @@
     list-style: none;
     margin: 0 10px;
 }
-.controls{
+
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.controls button{
-    height: 5vh;
-    width: 10vw;
+
+@media (max-width: 768px) {
+    .categories {
+        height: 100vh;
+        width: 100vw;
+    }
+    .controls button {
+        height: 5vh;
+        width: 20vw;
+        margin: 1vh;
+    }
+    .lists {
+       display: flex;
+       flex-wrap: wrap;
+
+    }
+    
+}
+
+.controls button {
     color: #000;
-    margin: 2vh;
     border-radius: 20px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
-.controls button:hover{
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+
+.controls button:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
     filter: brightness(1.2);
 }
-.cancelBtn{
+
+.cancelBtn {
     background-color: #d83d257f;
 }
-.applyBtn{
+
+.applyBtn {
     background-color: #57ea22;
 }

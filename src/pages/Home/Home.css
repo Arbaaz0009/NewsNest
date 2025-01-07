@@ -1,12 +1,12 @@
-.home{
+.home {
     width: 100vw;
     height: max-content;
     background-color: #ffffff;
 }
-.navbar{
+.navbar {
     width: 100vw;
     height: 6vh;
-    margin-top: 1VH;
+    margin-top: 1vh;
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
@@ -14,11 +14,31 @@
     font-size: 30px;
 }
 
-.navbar li{
+.navbar li {
     list-style: none;
     margin: 0 10px 10px 10px;
 }
-.navbar li a{
+
+.navbar li a {
     text-decoration: none;
     color: #000000;
-}   
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        font-size: 24px;
+    }
+    .navbar li {
+        margin: 0 8px 8px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        flex-direction: row;
+        font-size: 20px;
+    }
+    .navbar li {
+        margin: 5px 2px;
+    }
+}
