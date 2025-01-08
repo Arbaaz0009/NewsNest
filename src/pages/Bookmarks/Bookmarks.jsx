@@ -11,6 +11,7 @@ const Bookmarks = () => {
   const [isloading, setIsloading] = useState(true);
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [load, setLoad] = useState(false);
   const [hasData, setHasData] = useState(true);
   const email = localStorage.getItem("Email") ? localStorage.getItem("Email") : null;
   const server = import.meta.env.VITE_SERVER_URL;
@@ -44,7 +45,7 @@ const Bookmarks = () => {
       console.error(error);
       setIsloading(false);
     }
-  }, []);
+  }, [load]);
   if (isloading) {
     return <Loading />;
 
@@ -52,7 +53,7 @@ const Bookmarks = () => {
   return (
     <>
       {(isauth) ? <div className='bookmarks'>
-        {(hasData) ? <NewsFeed data={data} isBookmark={true} /> : <h1>No Bookmarks</h1>}
+        {(hasData) ? <NewsFeed data={data} isBookmark={true} load={load} /> : <h1>No Bookmarks</h1>}
       </div> :
         <div className='bookmarks'>
           <h1>Please Login</h1>
