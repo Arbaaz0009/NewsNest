@@ -71,6 +71,7 @@ a:hover {
     .body{
         margin: 0;
         padding: 1vh;
+        font-size: small;
     }
     h1,
     h2 {
