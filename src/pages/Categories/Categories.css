@@ -1,9 +1,12 @@
 .categories {
-    height: 100dvh !important;
+    height:max(100vh, 100dvh);
     width: 100vw;
 }
 
 .lists {
+    height: max-content;
+    overflow: auto;
+    background: #9ae3a0;
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -21,9 +24,34 @@
 }
 
 .controls {
+    height: auto;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.controls button {
+    height: 5vh;
+    width: 20vw;
+    color: #000;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.controls button:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+}
+
+.cancelBtn {
+    background-color: #d83d257f;
+}
+
+.applyBtn {
+    background-color: #57ea22;
 }
 
 @media (max-width: 768px) {
@@ -43,23 +71,19 @@
     }
     
 }
+@media (max-width: 398px) {
+    .categories {
+       height: max-content;
+    }
+    .controls button {
+        height: 5vh;
+        width: 20vw;
+        margin: 1vh;
+    }
+    .lists {
+       display: flex;
+       flex-wrap: wrap;
 
-.controls button {
-    color: #000;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.controls button:hover {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    filter: brightness(1.2);
-}
-
-.cancelBtn {
-    background-color: #d83d257f;
-}
-
-.applyBtn {
-    background-color: #57ea22;
+    }
+    
 }

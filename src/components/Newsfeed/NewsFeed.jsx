@@ -1,7 +1,7 @@
 import React from 'react'
 import "./NewsFeed.css";
 import Card from './Card';
-const NewsFeed = ({ data,isBookmark }) => {
+const NewsFeed = ({ data,isBookmark ,setLoad}) => {
 
 
   return (
@@ -16,6 +16,7 @@ const NewsFeed = ({ data,isBookmark }) => {
           id={item.id} 
           isBookmark={isBookmark}
           
+          setLoad={setLoad}
           />
       ))}
     </div>
