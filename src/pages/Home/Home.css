@@ -35,10 +35,7 @@
 
 @media screen and (max-width: 480px) {
     .navbar {
-        flex-direction: row;
-        font-size: 20px;
+        display: none;
     }
-    .navbar li {
-        margin: 5px 2px;
-    }
+ 
 }

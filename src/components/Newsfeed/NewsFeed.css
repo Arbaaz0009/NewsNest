@@ -9,17 +9,7 @@
     transition: all 1s ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-    .newsfeed {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
-    }
-}
 
-@media screen and (max-width: 480px) {
-    .newsfeed {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 5fr));
-    }
-}
 
 .Card {
     width: fit-content;
@@ -101,4 +91,21 @@
 .discription{
     text-align: center;
     /* text-wrap: balance; */
+}
+@media screen and (max-width: 768px) {
+    .newsfeed {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 5fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newsfeed {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .Card{
+        width: 100dvw;
+    }
 }

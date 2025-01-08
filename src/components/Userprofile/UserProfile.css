@@ -7,13 +7,38 @@
     justify-content: center;
     border: 5px solid black;
     border-radius: 50%;
+}
 
+@media (max-width: 768px) {
+    .user {
+        height: 7dvh;
+        width: 7dvh;
+    }
+}
+
+@media (max-width: 480px) {
+    .user {
+        height: 5dvh;
+        width: 5dvh;
+    }
 }
 
 .userProfile {
     width: calc(100% + 10dvh);
     display: flex;
     flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .userProfile {
+        width: calc(100% + 7dvh);
+    }
+}
+
+@media (max-width: 480px) {
+    .userProfile {
+        width: calc(100% + 5dvh);
+    }
 }
 
 .dropdown {
@@ -27,3 +52,4 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 }
+

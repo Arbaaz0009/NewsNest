@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #11121a;
+    --hover-color: #272832;
+    --accent-color: #0071FF;
+    --text-color: #c9c9c9;
+}
+
 .header {
     width: 100vw;
     height: 10vh;
@@ -39,12 +46,12 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    
+
 }
 
 .Logo img {
     width: 10vh;
-    height:10vh ;
+    height: 10vh;
 }
 
 .profile {
@@ -57,3 +64,109 @@
     right: 10px;
     cursor: pointer;
 }
+
+#sidebar {
+    background: #d9d9d9;
+    padding: 3vh;
+    position: absolute;
+    height: 100dvh;
+    width: max-content;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10000;
+    flex-wrap: wrap;
+    transition: display 3s ease-in-out;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    
+    height: max-content;
+    margin-top: 10vh;
+    align-self: flex-start;
+    height: calc(80%);
+    width: 100%;
+}
+#sidebar span p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    width: max-content;
+}
+.closebtn{
+    display: inline;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#sidebar .closebtn{
+    align-self: flex-start;
+    cursor: pointer;
+
+    svg{
+        width:  30px;
+        height: 30px;
+    }
+}
+#sidebar li {
+    padding: 1vh;
+    cursor: pointer;
+    margin: 2vh;
+    background-image:-webkit-linear-gradient( 0deg, #c9bfbf 0%, #bcb3b3 100%); 
+
+    a{
+        display: block;
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        height: 100%;
+        width: 100%;
+    }
+}
+.top{
+    display: flex;
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+   
+ 
+    #sidebar{
+        width: max-content;
+        padding: 1vh;
+    }
+    .span {
+        width: 30dvw;
+        border: 1px solid #d9d9d9;
+        
+    }
+    #sidebar span p{
+        font-size: 0.4em;
+    }
+    
+    #sidebar ul{
+        height: max-content;
+    }
+    #sidebar li{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1vh;
+
+        a{
+            font-size: 0.6em;
+
+        }
+    }
+    .top{
+        flex-direction: column;
+    }
+    #sidebar .closebtn svg{
+        height: 20px;
+        width: 20px;
+    }
+}
+
